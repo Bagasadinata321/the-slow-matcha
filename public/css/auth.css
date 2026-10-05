@@ -1,0 +1,339 @@
+/* =========================================================
+   TheSlowMatcha - Auth Pages Stylesheet
+   Warna: Cream, Sage, Olive/Matcha Deep, Ink Soft
+   ========================================================= */
+
+:root {
+  --tsm-matcha-deep: #2c382b;
+  --tsm-matcha-hover: #1e271d;
+  --tsm-cream-bg: #f5f2eb;
+  --tsm-card-bg: #fcfbf8;
+  --tsm-ink: #23241f;
+  --tsm-ink-muted: #727467;
+  --tsm-border: #e2ded4;
+  --tsm-input-bg: #f3f0e8;
+  --tsm-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --tsm-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --tsm-script: "Italianno", "Sacramento", cursive;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.tsm-auth-body {
+  font-family: var(--tsm-sans);
+  background-color: var(--tsm-cream-bg);
+  color: var(--tsm-ink);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.tsm-auth-container {
+  width: 100%;
+  max-width: 1040px;
+  background: var(--tsm-cream-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(35, 36, 31, 0.06);
+  padding: 32px 40px;
+  position: relative;
+}
+
+/* Header Top Bar (Brand Logo & Tagline) */
+.tsm-auth-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.tsm-auth-logo {
+  font-family: var(--tsm-serif);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--tsm-ink);
+  text-decoration: none;
+}
+
+.tsm-auth-tagline {
+  font-family: var(--tsm-script);
+  font-size: 20px;
+  color: var(--tsm-ink-muted);
+  text-align: right;
+  line-height: 1.1;
+}
+
+/* Main Grid Layout (Left Content vs Right Card) */
+.tsm-auth-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Left Hero Section */
+.tsm-auth-hero {
+  padding-right: 20px;
+  position: relative;
+}
+
+.tsm-auth-subtitle {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--tsm-ink-muted);
+  margin-bottom: 8px;
+}
+
+.tsm-auth-title {
+  font-family: var(--tsm-serif);
+  font-size: clamp(32px, 3.5vw, 42px);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--tsm-ink);
+  margin-bottom: 12px;
+}
+
+.tsm-auth-desc {
+  font-size: 13.5px;
+  color: var(--tsm-ink-muted);
+  line-height: 1.6;
+  max-width: 380px;
+  margin-bottom: 24px;
+}
+
+.tsm-auth-hero-img {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  margin-top: 10px;
+}
+
+/* Right Card Component */
+.tsm-auth-card {
+  background: var(--tsm-card-bg);
+  border: 1px solid var(--tsm-border);
+  border-radius: 12px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+/* Form Controls */
+.tsm-form-group {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.tsm-form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--tsm-ink);
+  margin-bottom: 6px;
+}
+
+.tsm-form-input {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--tsm-input-bg);
+  border: 1px solid var(--tsm-border);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--tsm-ink);
+  transition: all 0.2s ease;
+}
+
+.tsm-form-input:focus {
+  outline: none;
+  border-color: var(--tsm-matcha-deep);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(44, 56, 43, 0.08);
+}
+
+.tsm-form-input::placeholder {
+  color: #a8a69d;
+}
+
+/* Password Group with Eye Icon Toggle */
+.tsm-password-wrapper {
+  position: relative;
+}
+
+.tsm-password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--tsm-ink-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tsm-password-toggle svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+}
+
+/* Additional Row (Remember me & Forgot Password) */
+.tsm-form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.tsm-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--tsm-ink-muted);
+  cursor: pointer;
+}
+
+.tsm-checkbox-label input[type="checkbox"] {
+  accent-color: var(--tsm-matcha-deep);
+  width: 14px;
+  height: 14px;
+}
+
+.tsm-link {
+  color: var(--tsm-ink);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.tsm-link:hover {
+  color: var(--tsm-matcha-deep);
+  text-decoration: underline;
+}
+
+/* Buttons */
+.tsm-btn {
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.tsm-btn-primary {
+  background: var(--tsm-matcha-deep);
+  color: #ffffff;
+}
+
+.tsm-btn-primary:hover {
+  background: var(--tsm-matcha-hover);
+}
+
+.tsm-btn-outline {
+  background: transparent;
+  border-color: var(--tsm-border);
+  color: var(--tsm-ink);
+}
+
+.tsm-btn-outline:hover {
+  background: var(--tsm-input-bg);
+}
+
+/* Divider Line */
+.tsm-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 18px 0;
+  color: var(--tsm-ink-muted);
+  font-size: 11px;
+}
+
+.tsm-divider::before,
+.tsm-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--tsm-border);
+}
+
+.tsm-divider span {
+  padding: 0 10px;
+}
+
+/* Footer link inside card */
+.tsm-card-footer {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 12px;
+  color: var(--tsm-ink-muted);
+}
+
+/* Centered Icon View (For Email Verification & Confirm Password) */
+.tsm-icon-box {
+  width: 56px;
+  height: 56px;
+  background: var(--tsm-matcha-deep);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.tsm-icon-box svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+}
+
+/* Error Message */
+.tsm-error-text {
+  font-size: 11.5px;
+  color: #b3543f;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Responsive Handling */
+@media (max-width: 840px) {
+  .tsm-auth-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .tsm-auth-hero {
+    text-align: center;
+    padding-right: 0;
+  }
+  .tsm-auth-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .tsm-auth-hero-img {
+    display: none;
+  }
+}

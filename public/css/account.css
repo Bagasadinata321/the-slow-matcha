@@ -1,0 +1,956 @@
+/* =========================================================
+   TheSlowMatcha - Account Pages Styles (Fully Responsive Fix)
+   Dipakai oleh: Riwayat Pesanan, Buku Alamat, Pengaturan Profil, Detail Pesanan.
+   ========================================================= */
+
+.tsm-account {
+  --ac-ink: #23241f;
+  --ac-ink-soft: #5c5f54;
+  --ac-ink-muted: #8b8d80;
+  --ac-green: #3a4d38;
+  --ac-green-deep: #2b3a29;
+  --ac-sage: #eef1e7;
+  --ac-line: #e6e2d6;
+  --ac-line-soft: #efece2;
+  --ac-cream: #faf8f3;
+  --ac-white: #ffffff;
+  --ac-danger: #b3543f;
+  --ac-danger-soft: #fbeeea;
+
+  --ac-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --ac-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --ac-script: "Italianno", "Sacramento", cursive;
+
+  --ac-radius: 10px;
+
+  font-family: var(--ac-sans);
+  color: var(--ac-ink);
+  background: var(--ac-cream);
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.tsm-account *,
+.tsm-account *::before,
+.tsm-account *::after { 
+  box-sizing: border-box; 
+}
+
+/* ---------------- Shell: sidebar + konten ---------------- */
+.ac-shell {
+  padding-top: 55px;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  align-items: stretch;
+  min-height: 640px;
+  max-width: 1140px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.ac-main {
+  padding: 20px 30px 56px;
+  min-width: 0;
+  width: 100%;
+}
+
+/* ---------------- Sidebar ---------------- */
+.ac-sidebar {
+  position: relative;
+  background: var(--ac-cream);
+  border-right: 1px solid var(--ac-line-soft);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.ac-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 18px;
+}
+
+.ac-user__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #ded9cc;
+  flex-shrink: 0;
+}
+
+.ac-user__name {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.ac-user__email {
+  font-size: 11.5px;
+  color: var(--ac-ink-muted);
+  margin: 2px 0 0;
+  word-break: break-all;
+}
+
+.ac-nav {
+  padding: 0 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ac-nav__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: var(--ac-radius);
+  font-size: 13.5px;
+  color: var(--ac-ink-soft);
+  text-decoration: none;
+  background: none;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.ac-nav__item:hover { background: #f2efe6; color: var(--ac-ink); }
+
+.ac-nav__item.is-active {
+  background: #eeeade;
+  color: var(--ac-ink);
+  font-weight: 600;
+}
+
+.ac-nav__item svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+
+/* Ornamen bawah sidebar */
+.ac-sidebar__art {
+  margin-top: auto;
+  position: relative;
+  padding-top: 40px;
+}
+
+.ac-sidebar__script {
+  font-family: var(--ac-script);
+  font-size: 30px;
+  line-height: 1.2;
+  color: var(--ac-green);
+  padding: 0 24px 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.ac-sidebar__art img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+}
+
+/* ---------------- Page head ---------------- */
+.ac-breadcrumb {
+  font-size: 12.5px;
+  color: var(--ac-ink-muted);
+  margin: 0 0 14px;
+}
+.ac-breadcrumb a { color: var(--ac-ink-muted); text-decoration: none; }
+.ac-breadcrumb a:hover { color: var(--ac-ink); }
+.ac-breadcrumb span { margin: 0 6px; }
+
+.ac-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.ac-head h1 {
+  font-family: var(--ac-serif);
+  font-size: clamp(24px, 3.2vw, 36px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+}
+
+.ac-head p {
+  font-size: 13.5px;
+  color: var(--ac-ink-soft);
+  margin: 0;
+}
+
+/* ---------------- Filter tabs ---------------- */
+.ac-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.ac-tab {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--ac-line);
+  background: var(--ac-white);
+  color: var(--ac-ink-soft);
+  font-size: 12.5px;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.ac-tab:hover { border-color: var(--ac-green); color: var(--ac-ink); }
+
+.ac-tab.is-active {
+  background: var(--ac-green-deep);
+  border-color: var(--ac-green-deep);
+  color: var(--ac-white);
+  font-weight: 600;
+}
+
+/* ---------------- Card umum ---------------- */
+.ac-card {
+  background: var(--ac-white);
+  border: 1px solid var(--ac-line);
+  border-radius: var(--ac-radius);
+  box-shadow: 0 1px 2px rgba(35, 47, 34, 0.04);
+  width: 100%;
+}
+
+.ac-card + .ac-card { margin-top: 16px; }
+
+.ac-card__head {
+  padding: 20px 22px 0;
+}
+
+.ac-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.ac-card__sub {
+  font-size: 12.5px;
+  color: var(--ac-ink-muted);
+  margin: 0;
+}
+
+/* ---------------- Order card ---------------- */
+.ac-order {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr) 210px;
+  gap: 0;
+  margin-bottom: 14px;
+}
+
+.ac-order__meta {
+  padding: 20px;
+  border-right: 1px solid var(--ac-line-soft);
+}
+
+.ac-order__id {
+  font-size: 13.5px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.ac-order__date {
+  font-size: 12px;
+  color: var(--ac-ink-muted);
+  margin: 0 0 12px;
+}
+
+.ac-status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ac-status--unpaid    { background: #fbe4e2; color: #a8483a; }
+.ac-status--shipped   { background: #e3ebe0; color: #46603f; }
+.ac-status--completed { background: #e3ebe0; color: #46603f; }
+.ac-status--pending   { background: #f6efdc; color: #8a6d2f; }
+.ac-status--cancelled { background: #ececec; color: #6f6f6f; }
+
+/* daftar produk dalam order */
+.ac-order__items {
+  padding: 14px 20px;
+  border-right: 1px solid var(--ac-line-soft);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.ac-order-item {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) 40px 110px;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 0;
+}
+
+.ac-order-item img {
+  width: 52px;
+  height: 52px;
+  border-radius: 6px;
+  object-fit: cover;
+  background: #f0ede4;
+  flex-shrink: 0;
+}
+
+.ac-order-item__name {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.ac-order-item__variant {
+  font-size: 11.5px;
+  color: var(--ac-ink-muted);
+  margin: 2px 0 0;
+}
+
+.ac-order-item__qty {
+  font-size: 12.5px;
+  color: var(--ac-ink-soft);
+  text-align: center;
+}
+
+.ac-order-item__price {
+  font-size: 12.5px;
+  color: var(--ac-ink-soft);
+  text-align: right;
+}
+
+/* sisi kanan: total + aksi */
+.ac-order__side {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.ac-order__total-label {
+  font-size: 11.5px;
+  color: var(--ac-ink-muted);
+  margin: 0;
+}
+
+.ac-order__total {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 2px 0 14px;
+}
+
+.ac-order__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ---------------- Buttons ---------------- */
+.ac-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 16px;
+  border-radius: 7px;
+  font-size: 12.5px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.ac-btn--primary { background: var(--ac-green-deep); color: var(--ac-white); }
+.ac-btn--primary:hover { background: #1f2a1e; color: var(--ac-white); }
+
+.ac-btn--ghost {
+  background: var(--ac-white);
+  color: var(--ac-ink);
+  border-color: var(--ac-line);
+}
+.ac-btn--ghost:hover { background: #f5f3ec; color: var(--ac-ink); }
+
+.ac-btn--muted {
+  background: #ececec;
+  color: #8d8d8d;
+  cursor: not-allowed;
+}
+
+.ac-btn--danger {
+  background: var(--ac-danger-soft);
+  color: var(--ac-danger);
+  border-color: transparent;
+}
+.ac-btn--danger:hover { background: #f6e0da; }
+
+.ac-btn--sm { padding: 7px 12px; font-size: 11.5px; }
+.ac-btn--block { width: 100%; }
+
+/* Tombol "..." + dropdown */
+.ac-more { position: relative; flex-shrink: 0; }
+
+.ac-more__btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  background: none;
+  color: var(--ac-ink-muted);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+.ac-more__btn:hover { background: #f2efe6; color: var(--ac-ink); }
+
+.ac-more__menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  min-width: 168px;
+  background: var(--ac-white);
+  border: 1px solid var(--ac-line);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(35, 47, 34, 0.12);
+  padding: 6px;
+  z-index: 30;
+  display: none;
+}
+
+.ac-more.is-open .ac-more__menu { display: block; }
+
+.ac-more__menu a,
+.ac-more__menu button {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 12.5px;
+  color: var(--ac-ink-soft);
+  text-align: left;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.ac-more__menu a:hover,
+.ac-more__menu button:hover { background: #f4f1e9; color: var(--ac-ink); }
+.ac-more__menu .is-danger { color: var(--ac-danger); }
+
+/* ---------------- Pagination ---------------- */
+.ac-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.ac-pagination a,
+.ac-pagination span {
+  min-width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  border: 1px solid var(--ac-line);
+  background: var(--ac-white);
+  font-size: 12.5px;
+  color: var(--ac-ink-soft);
+  text-decoration: none;
+}
+.ac-pagination a:hover { border-color: var(--ac-green); color: var(--ac-ink); }
+.ac-pagination .is-current {
+  background: var(--ac-green-deep);
+  border-color: var(--ac-green-deep);
+  color: var(--ac-white);
+  font-weight: 600;
+}
+.ac-pagination .is-disabled { opacity: 0.45; pointer-events: none; }
+
+/* ---------------- Address book ---------------- */
+.ac-address {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  align-items: flex-start;
+}
+
+.ac-address__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--ac-sage);
+  color: var(--ac-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ac-address__icon svg { width: 18px; height: 18px; stroke: currentColor; }
+
+.ac-address__body { flex: 1; min-width: 0; }
+
+.ac-address__label-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.ac-address__label {
+  font-size: 12px;
+  color: var(--ac-ink-muted);
+}
+
+.ac-badge-primary {
+  background: var(--ac-sage);
+  color: var(--ac-green);
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.ac-address__name {
+  font-size: 13.5px;
+  font-weight: 600;
+  margin: 0 0 2px;
+}
+
+.ac-address__phone,
+.ac-address__text {
+  font-size: 12.5px;
+  color: var(--ac-ink-soft);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ac-address__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* ---------------- Form ---------------- */
+.ac-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+}
+
+.ac-field { margin-bottom: 16px; }
+
+.ac-field label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--ac-ink);
+}
+.ac-field label .req { color: var(--ac-danger); }
+
+.ac-field input,
+.ac-field select,
+.ac-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--ac-line);
+  border-radius: 7px;
+  background: var(--ac-white);
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--ac-ink);
+}
+
+.ac-field textarea { resize: vertical; min-height: 72px; }
+
+.ac-field input:focus,
+.ac-field select:focus,
+.ac-field textarea:focus {
+  outline: none;
+  border-color: var(--ac-green);
+  box-shadow: 0 0 0 3px rgba(58, 77, 56, 0.1);
+}
+
+.ac-field input::placeholder,
+.ac-field textarea::placeholder { color: #b3b3a8; }
+
+.ac-field--full { grid-column: 1 / -1; }
+
+.ac-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--ac-ink-soft);
+}
+.ac-checkbox input { accent-color: var(--ac-green); }
+
+/* Input password + toggle mata */
+.ac-input-group { position: relative; }
+.ac-input-group input { padding-right: 40px; }
+
+.ac-input-group__toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--ac-ink-muted);
+  line-height: 0;
+}
+.ac-input-group__toggle:hover { color: var(--ac-ink); }
+.ac-input-group__toggle svg { width: 17px; height: 17px; stroke: currentColor; }
+
+/* ---------------- Panel form "Tambah Alamat Baru" ---------------- */
+.ac-panel {
+  border-top: 1px solid var(--ac-line);
+  padding: 20px 22px 22px;
+}
+
+.ac-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.ac-panel__title { font-size: 14px; font-weight: 600; margin: 0; }
+
+.ac-panel__close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--ac-ink-muted);
+  cursor: pointer;
+  padding: 2px 6px;
+}
+.ac-panel__close:hover { color: var(--ac-ink); }
+
+.ac-panel__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.ac-panel__footer-actions { display: flex; gap: 10px; margin-left: auto; }
+
+/* Panel tersembunyi sampai dibuka lewat JS */
+[data-panel] { display: none; }
+[data-panel].is-open { display: block; }
+
+/* ---------------- Profile settings ---------------- */
+.ac-profile-grid {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 28px;
+  padding: 20px 22px 8px;
+}
+
+.ac-avatar-block { text-align: center; }
+
+.ac-avatar-block img {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #ded9cc;
+  display: block;
+  margin: 0 auto 12px;
+}
+
+.ac-card__actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 22px 22px;
+}
+
+/* ---------------- Empty state ---------------- */
+.ac-empty {
+  text-align: center;
+  padding: 56px 20px;
+  color: var(--ac-ink-muted);
+  font-size: 13.5px;
+}
+
+/* =========================================================
+   GAYA KHUSUS HALAMAN ORDER DETAIL
+   ========================================================= */
+
+.ac-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 20px;
+  align-items: start;
+}
+
+.ac-detail-section {
+  padding: 20px 22px;
+}
+
+.ac-detail-section__title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ac-line-soft);
+}
+
+.ac-detail-item-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.ac-detail-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.ac-info-item label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ac-ink-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.ac-info-item p,
+.ac-info-item strong {
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.ac-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--ac-ink-soft);
+  margin-bottom: 10px;
+}
+
+.ac-summary-row.is-total {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ac-ink);
+  padding-top: 10px;
+  border-top: 1px solid var(--ac-line-soft);
+  margin-bottom: 16px;
+}
+
+.ac-payment-box {
+  background: var(--ac-cream);
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--ac-line-soft);
+  margin-bottom: 16px;
+}
+
+/* =========================================================
+   PERBAIKAN RESPONSIVE MEDIA QUERIES (MOBILE, TABLET & SMALL DESKTOP)
+   ========================================================= */
+
+/* --- Tablet / Small Laptop (max-width: 1080px) --- */
+@media (max-width: 1080px) {
+  .ac-order { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .ac-order__meta,
+  .ac-order__items { 
+    border-right: 0; 
+    border-bottom: 1px solid var(--ac-line-soft); 
+  }
+
+  .ac-order__side {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .ac-order__total {
+    margin: 0;
+  }
+
+  .ac-detail-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Breakpoint Utama Tablet & Mobile (max-width: 940px) --- */
+@media (max-width: 940px) {
+  .ac-shell { 
+    grid-template-columns: 1fr; 
+    padding-top: 55px;
+  }
+
+  .ac-main { 
+    padding: 20px 16px 40px; 
+  }
+
+  .ac-sidebar { 
+    border-right: 0; 
+    border-bottom: 1px solid var(--ac-line-soft); 
+    border-radius: var(--ac-radius);
+    background: var(--ac-white);
+  }
+
+  .ac-sidebar__art { 
+    display: none; 
+  }
+
+  .ac-user {
+    padding: 14px 16px;
+  }
+
+  .ac-nav { 
+    flex-direction: row; 
+    overflow-x: auto; 
+    padding: 0 14px 14px; 
+    gap: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ac-nav__item { 
+    white-space: nowrap; 
+    width: auto; 
+    padding: 8px 14px;
+    font-size: 13px;
+    background: var(--ac-cream);
+    border: 1px solid var(--ac-line-soft);
+  }
+
+  .ac-nav__item.is-active {
+    background: #eeeade;
+  }
+}
+
+/* --- Tablet Pertengahan (max-width: 720px) --- */
+@media (max-width: 720px) {
+  .ac-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .ac-address { 
+    flex-wrap: wrap; 
+  }
+
+  .ac-address__actions { 
+    width: 100%; 
+    justify-content: flex-start; 
+    margin-top: 10px;
+  }
+}
+
+/* --- Smartphone / Mobile (max-width: 640px) --- */
+@media (max-width: 640px) {
+  .ac-form-grid { 
+    grid-template-columns: 1fr; 
+  }
+
+  .ac-profile-grid { 
+    grid-template-columns: 1fr; 
+    gap: 16px; 
+  }
+
+  .ac-avatar-block {
+    margin-bottom: 8px;
+  }
+
+  .ac-panel__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ac-panel__footer-actions {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .ac-panel__footer-actions .ac-btn {
+    flex: 1;
+  }
+
+  .ac-card__actions {
+    justify-content: stretch;
+  }
+
+  .ac-card__actions .ac-btn {
+    width: 100%;
+  }
+
+  .ac-detail-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Mobile Ukuran Kecil (max-width: 560px) --- */
+@media (max-width: 560px) {
+  .ac-order-item { 
+    grid-template-columns: 44px minmax(0, 1fr); 
+    gap: 10px;
+  }
+
+  .ac-order-item__qty,
+  .ac-order-item__price { 
+    text-align: left; 
+    grid-column: 2; 
+  }
+
+  .ac-order__side {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .ac-order__actions {
+    width: 100%;
+  }
+
+  .ac-order__actions .ac-btn {
+    flex: 1;
+  }
+}

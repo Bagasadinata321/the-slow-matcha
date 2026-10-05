@@ -1,0 +1,93 @@
+:root {
+  --ink: #1c1f19;
+  --cream: #f4f1ea;
+  --cream-card: #ece7dc;
+  --olive-dark: #22261d;
+  --olive: #3f4a34;
+  --olive-soft: #6b7a55;
+  --gold: #c9a24b;
+  --line: rgba(28,31,25,0.12);
+  --serif: 'Georgia', 'Iowan Old Style', serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--cream);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tree-container { width: 100%; max-width: 480px; margin: 0 auto; text-align: center; }
+
+/* BRAND HEADER */
+.brand-header { margin-bottom: 32px; }
+.profile-avatar {
+  width: 88px; height: 88px; border-radius: 50%; margin: 0 auto 16px;
+  background: linear-gradient(135deg, #2c3324, #171b12);
+  border: 2px solid var(--cream-card);
+  box-shadow: 0 8px 24px rgba(28,31,25,0.08);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--cream); font-family: var(--serif); font-size: 28px; font-style: italic;
+  overflow: hidden;
+}
+.profile-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.brand-title { font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: .5px; margin-bottom: 6px; }
+.brand-tagline { font-size: 13px; color: #5b5e51; letter-spacing: .5px; }
+
+/* BANNER PROMO */
+.promo-banner {
+  background: var(--olive-dark); color: var(--cream); padding: 14px 20px; border-radius: 12px;
+  margin-bottom: 24px; text-align: left; display: flex; align-items: center; justify-content: space-between;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.06); text-decoration: none; transition: transform .25s ease;
+}
+.promo-banner:hover { transform: translateY(-2px); }
+.promo-info h4 { font-family: var(--serif); font-size: 14px; font-weight: 400; color: #fff; margin-bottom: 2px; }
+.promo-info p { font-size: 11px; color: rgba(244,241,234,0.75); }
+.promo-tag {
+  background: var(--gold); color: var(--ink); font-size: 9px; font-weight: 700;
+  letter-spacing: .5px; text-transform: uppercase; padding: 4px 8px; border-radius: 20px; white-space: nowrap;
+}
+
+/* LINK BUTTONS */
+.links-wrapper { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+
+.link-btn {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #fff; border: 1px solid var(--line); padding: 16px 20px; border-radius: 12px;
+  color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: .5px;
+  transition: all .25s cubic-bezier(.2,.7,.2,1); box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+}
+.link-btn:hover {
+  background: var(--olive); color: #fff; border-color: var(--olive);
+  transform: translateY(-2px); box-shadow: 0 8px 18px rgba(63,74,52,0.18);
+}
+.link-btn .icon { font-size: 16px; margin-right: 12px; }
+.link-btn .label-wrap { display: flex; align-items: center; }
+.link-btn .arrow { font-size: 12px; opacity: 0.5; transition: opacity .25s, transform .25s; }
+.link-btn:hover .arrow { opacity: 1; transform: translateX(3px); }
+
+/* ACCORDION (SUB-MENU) */
+.link-accordion { background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; text-align: left; }
+.accordion-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; cursor: pointer; font-size: 13px; font-weight: 500; user-select: none;
+}
+.accordion-header .chevron { font-size: 10px; transition: transform .3s ease; opacity: 0.6; }
+.link-accordion.open .chevron { transform: rotate(180deg); }
+.accordion-body { max-height: 0; overflow: hidden; background: var(--cream); transition: max-height .35s ease-in-out; }
+.sub-link {
+  display: flex; align-items: center; padding: 12px 20px 12px 48px; font-size: 12px;
+  color: #4a4d43; border-top: 1px solid rgba(28,31,25,0.06); text-decoration: none; transition: background .2s, color .2s;
+}
+.sub-link:hover { background: var(--cream-card); color: var(--olive); }
+
+/* FOOTER */
+.tree-footer { font-size: 11px; color: #6d7063; letter-spacing: 1px; text-transform: uppercase; }
+.tree-footer a { border-bottom: 1px solid rgba(28,31,25,0.3); color: inherit; text-decoration: none; }
